@@ -20,7 +20,7 @@ public class Warrior extends Fighter {
     public String specialAbility(Fighter target) {
         defend();
 
-        return "Warrior försvarar sig själv och halverar nästa skada";
+        return " försvarar sig själv och halverar nästa skada";
     }
 
 

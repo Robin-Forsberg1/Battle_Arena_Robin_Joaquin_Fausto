@@ -19,8 +19,13 @@ public abstract class Player {
     protected boolean useMove(String choice, Fighter target){
         boolean moveFound = true;
         switch (choice){
-            case "1": myFighter.attack(target); break;
-            case "2": System.out.println(myFighter.specialAbility(target)); break;
+            case "1":
+                int damage = myFighter.attack(target);
+                System.out.println(getMyName() + " gör " + damage + " skada");
+                break;
+            case "2":
+                System.out.println(getMyName() + myFighter.specialAbility(target));
+                break;
             case "3": break;
             case "4": break;
             default: moveFound = false; break;
