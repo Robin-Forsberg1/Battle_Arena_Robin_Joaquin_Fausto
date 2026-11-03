@@ -26,8 +26,8 @@ public abstract class Fighter implements Moves {
         int damage = random.nextInt(minDamage, maxDamage + 1);
         int actualDamage = target.takeDamage(damage);
 
-        System.out.println(getClass().getSimpleName()
-        + " gör " + actualDamage + " skada mot " + target.getClass().getSimpleName());
+        System.out.println(getName()
+        + " gör " + actualDamage + " skada mot " + target.getName());
         return actualDamage;
     }
 
@@ -54,12 +54,17 @@ public abstract class Fighter implements Moves {
 
         int oldHp = hp;
         hp = Math.min(maxHp, hp + amount);
-        System.out.println(getClass().getSimpleName() + " helar sig själv med " + amount);
         return hp - oldHp;
     }
 
-    public int getHp(boolean withText){
+    public int getHp(){
+        return hp;
+    }
 
+    public int getHp(boolean withText) {
+        if (withText) {
+            System.out.println(getName() + "s HP: " + hp);
+        }
         return hp;
     }
 

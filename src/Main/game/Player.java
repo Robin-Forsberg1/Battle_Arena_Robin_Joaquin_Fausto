@@ -9,9 +9,9 @@ public abstract class Player {
 
     protected int getFightersHP(boolean withText) {
         if (withText) {
-            System.out.println(getMyName() + "'s HP: " + myFighter.getHp(false));
+            System.out.println(getMyName() + "'s HP: " + myFighter.getHp());
         }
-        return myFighter.getHp(withText);
+        return myFighter.getHp();
     }
     protected Fighter getFighter() {return myFighter;}
     protected String getMyName() {return myName;}
@@ -20,7 +20,7 @@ public abstract class Player {
         boolean moveFound = true;
         switch (choice){
             case "1": myFighter.attack(target); break;
-            case "2": myFighter.heal(10); break;
+            case "2": System.out.println(myFighter.specialAbility(target)); break;
             case "3": break;
             case "4": break;
             default: moveFound = false; break;
