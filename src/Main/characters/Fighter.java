@@ -26,8 +26,6 @@ public abstract class Fighter implements Moves {
         int damage = random.nextInt(minDamage, maxDamage + 1);
         int actualDamage = target.takeDamage(damage);
 
-        System.out.println(getName()
-        + " gör " + actualDamage + " skada mot " + target.getName());
         return actualDamage;
     }
 
