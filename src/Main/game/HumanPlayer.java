@@ -10,7 +10,7 @@ public class HumanPlayer extends Player implements Control {
     @Override
     public void selectMove(Fighter target) {
         while (true) {
-            System.out.print("1: Attack | 2: " + getFighter().getSpecialAction() +  "| 3: ... \nVälj nummer: ");
+            System.out.print("1: Attack | 2: " + getFighter().getSpecialAction() +  " | 3: ... \nVälj nummer: ");
             if(useMove(scan.nextLine(), target)) break;
             else System.out.println("Okänd move...\n");
         }

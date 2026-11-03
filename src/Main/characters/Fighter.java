@@ -3,10 +3,8 @@ package Main.characters;
 import java.util.Random;
 
 public abstract class Fighter implements Moves {
-    private final int maxHp;
+    private final int maxHp,minDamage, maxDamage;
     private int hp;
-    private final int minDamage;
-    private final int maxDamage;
     private boolean defending;
 
     private final Random random = new Random();
@@ -15,7 +13,6 @@ public abstract class Fighter implements Moves {
         if (maxHp <= 0 || minDamage <= 0 || maxDamage < minDamage) {
             throw new IllegalArgumentException("Ogiltiga karaktärsvärden");
         }
-
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.minDamage = minDamage;
@@ -25,7 +22,6 @@ public abstract class Fighter implements Moves {
     public int attack(Fighter target) {
         int damage = random.nextInt(minDamage, maxDamage + 1);
         int actualDamage = target.takeDamage(damage);
-
         return actualDamage;
     }
 
@@ -33,15 +29,12 @@ public abstract class Fighter implements Moves {
         if (damage < 0) {
             throw new IllegalArgumentException("Skada kan inte vara negativ");
         }
-
         if (defending) {
             damage = (damage + 1) / 2;
             defending = false;
         }
-
         int oldHp = hp;
         hp = Math.max(0, hp -damage);
-
         return oldHp - hp;
     }
 
