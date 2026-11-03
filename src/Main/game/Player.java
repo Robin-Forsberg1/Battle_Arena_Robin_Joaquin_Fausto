@@ -8,6 +8,9 @@ public abstract class Player {
     protected Player(String myName) {this.myName = myName;}
 
     protected int getFightersHP(boolean withText) {
+        if (withText) {
+            System.out.println(getMyName() + "'s HP: " + myFighter.getHp(false));
+        }
         return myFighter.getHp(withText);
     }
     protected Fighter getFighter() {return myFighter;}

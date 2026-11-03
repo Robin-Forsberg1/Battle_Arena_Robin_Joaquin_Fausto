@@ -2,7 +2,6 @@ package Main.characters;
 
 public class Mage extends Fighter {
 
-
     public Mage() {
         super(100,5,15);
     }

@@ -22,6 +22,6 @@ public class Archer extends Fighter {
         int firstHit = attack(target);
         int secondHit = attack(target);
 
-        return "Archer attackerar två gånger och gör " + firstHit + " och " + secondHit + "skada";
+        return "Archer attackerar två gånger och gör " + firstHit + " och " + secondHit + " skada";
     }
 }
