@@ -19,18 +19,18 @@ class FighterTest {
     @Test
     void warriorAttacksArcher() {
         int damage = warrior.attack(archer);
-        System.out.println("Archers HP är nu: "+archer.getHp(true)+"\n");
+        archer.getHp(true);
         assertTrue(damage >=5 && damage <= 15);
     }
 
     @Test
     void archerLoseHPToZero() {
-        while (archer.getHp(true) > 1) {
+        while (archer.getHp(true) > 0) {
             warrior.attack(archer);
-            archer.getHp(true);
+            archer.getHp(false);
             System.out.println();
         }
-        assertTrue(archer.getHp(true) == 0);
+        assertTrue(archer.getHp(false) == 0);
     }
 
     @Test
