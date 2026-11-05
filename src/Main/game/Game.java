@@ -1,45 +1,54 @@
 package Main.game;
 
 public class Game {
-    //Game starts from Main-class
 
-    //Select Fighter
+    private HumanPlayer me;
+    private ComputerPlayer it;
 
-    //1st turn
+    public Game(String playerName) {
+        me = new HumanPlayer(playerName);
+        it = new ComputerPlayer("Machine");
+    }
 
-    //The fastest player/character start
-    //Other one goes last
-
-    //2nd turn... (looping)
-
-    //If one of the player has lost HP, the other one wins.
-    //The loop/game ends.
-
-    HumanPlayer me = new HumanPlayer("Fausto");
-    ComputerPlayer it = new ComputerPlayer("Machine");
-
-    public void selectScreen(){
+    public void selectScreen() {
         System.out.println("~~~~Välj en fighter~~~~");
+
         me.pickFighter();
         it.pickFighter();
+
         System.out.println();
     }
 
     public void battle() {
 
         System.out.println("FIGHT BÖRJAS!");
+
         Boolean startText = true;
-        while(me.getFightersHP(startText) > 0 && it.getFightersHP(startText) > 0) {
+
+        while (me.getFightersHP(startText) > 0 &&
+                it.getFightersHP(startText) > 0) {
+
             System.out.println();
+
             me.selectMove(it.getFighter());
+
+            if (it.getFightersHP(false) <= 0) {
+                break;
+            }
+
             it.selectMove(me.getFighter());
+
             System.out.println();
             me.getFightersHP(true);
             it.getFightersHP(true);
+
             startText = false;
         }
-        if(me.getFightersHP(false) < it.getFightersHP(false))
+
+        if (me.getFightersHP(false) <= 0) {
             System.out.println(it.getMyName() + " vinner!");
-        else System.out.println(me.getMyName() + " vinner!");
+        } else {
+            System.out.println(me.getMyName() + " vinner!");
+        }
     }
 }
