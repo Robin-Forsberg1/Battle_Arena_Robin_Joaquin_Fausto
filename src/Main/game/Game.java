@@ -10,19 +10,13 @@ public class Game {
 
     //Using TDD
     public void namePlayers(String name) {
-        while (name == null || name.isBlank()) {
-            if (name == null){
-                Scanner myName = new Scanner(System.in);
-                System.out.print("Vad är ditt namn?\nNamn: ");
-                name = myName.nextLine();
-            }
-            if (name.isBlank()) {
-                System.out.println("Inga blanka namn...");
-                name = null;
-            }
+        while (name == null || name.isBlank() || name.equals(TextList.CPU_NAME.toString())) {
+            Scanner myName = new Scanner(System.in);
+            System.out.print(TextList.INPUT_YOUR_NAME);
+            name = myName.nextLine().trim();
         }
         players.add(new HumanPlayer(name));
-        players.add(new ComputerPlayer("Machine"));
+        players.add(new ComputerPlayer(TextList.CPU_NAME.toString()));
     }
 
     public void selectScreen(){

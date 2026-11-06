@@ -1,11 +1,7 @@
 package Test;
 import Main.game.*;
-import jdk.jfr.Timespan;
 import org.junit.jupiter.api.*;
-
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
@@ -41,20 +37,11 @@ class GameTest {
                         game.namePlayers("\n")));
     }
 
-    /*
-    @Disabled
-    @Test
-    void namePlayersCanNotGivePlayerSameNameAsOtherPlayer() {
-        game.giveName();
-        assertFalse(game.players.get(0).getMyName().equals(game.players.get(1).getMyName()));
-    }
 
-    @Disabled
     @Test
-    void namePlayersCanNotGiveComputerPlayerName() {
-        game.players.add(new ComputerPlayer("Machine"));
-        System.out.println(game.players.get(0).getClass());
-        game.giveName();
-        assertFalse(false);
-    }*/
+    void namePlayersCanNotGivePlayerSameNameAsComputerPlayer() {
+        assertThrows(Error.class, () ->
+                assertTimeoutPreemptively(Duration.ofSeconds(1), () ->
+                        game.namePlayers("Datorn")));
+    }
 }
