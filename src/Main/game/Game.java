@@ -10,10 +10,16 @@ public class Game {
 
     //Using TDD
     public void namePlayers(String name) {
-        if (name == null){
-            Scanner myName = new Scanner(System.in);
-            System.out.print("What is your name?\nName: ");
-            name = myName.nextLine();
+        while (name == null || name.isBlank()) {
+            if (name == null){
+                Scanner myName = new Scanner(System.in);
+                System.out.print("Vad är ditt namn?\nNamn: ");
+                name = myName.nextLine();
+            }
+            if (name.isBlank()) {
+                System.out.println("Inga blanka namn...");
+                name = null;
+            }
         }
         players.add(new HumanPlayer(name));
         players.add(new ComputerPlayer("Machine"));

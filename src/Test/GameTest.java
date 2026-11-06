@@ -1,6 +1,10 @@
 package Test;
 import Main.game.*;
+import jdk.jfr.Timespan;
 import org.junit.jupiter.api.*;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,14 +26,22 @@ class GameTest {
         assertEquals("Fausto", game.players.get(0).getMyName());
     }
 
-    /*
-    @Disabled
+
     @Test
-    void namePlayersCanNotGivePlayerOnlySpaceOrEmptySpace(){
-        game.giveName();
-        assertTrue(game.giveName() != "\n" || game.giveName() != " ");
+    void namePlayersCanNotGivePlayerOnlySpace() {
+        assertThrows(Error.class, () ->
+                assertTimeoutPreemptively(Duration.ofSeconds(1), () ->
+                        game.namePlayers(" ")));
     }
 
+    @Test
+    void namePlayersCanNotGivePlayerEmptySpace(){
+        assertThrows(Error.class, () ->
+                assertTimeoutPreemptively(Duration.ofSeconds(1), () ->
+                        game.namePlayers("\n")));
+    }
+
+    /*
     @Disabled
     @Test
     void namePlayersCanNotGivePlayerSameNameAsOtherPlayer() {
