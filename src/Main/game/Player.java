@@ -14,7 +14,7 @@ public abstract class Player {
         return myFighter.getHp();
     }
     protected Fighter getFighter() {return myFighter;}
-    protected String getMyName() {return myName;}
+    public String getMyName() {return myName;}
 
     protected boolean useMove(String choice, Fighter target){
         boolean moveFound = true;

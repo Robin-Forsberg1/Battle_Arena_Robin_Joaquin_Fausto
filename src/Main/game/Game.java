@@ -1,22 +1,23 @@
 package Main.game;
 
+import java.util.*;
+
 public class Game {
-    //Game starts from Main-class
-
-    //Select Fighter
-
-    //1st turn
-
-    //The fastest player/character start
-    //Other one goes last
-
-    //2nd turn... (looping)
-
-    //If one of the player has lost HP, the other one wins.
-    //The loop/game ends.
 
     HumanPlayer me = new HumanPlayer("Fausto");
     ComputerPlayer it = new ComputerPlayer("Machine");
+    public List<Player> players = new ArrayList<>();
+
+    //Using TDD
+    public void namePlayers(String name) {
+        while (name == null || name.isBlank() || name.equals(TextList.CPU_NAME.toString())) {
+            Scanner myName = new Scanner(System.in);
+            System.out.print(TextList.INPUT_YOUR_NAME);
+            name = myName.nextLine().trim();
+        }
+        players.add(new HumanPlayer(name));
+        players.add(new ComputerPlayer(TextList.CPU_NAME.toString()));
+    }
 
     public void selectScreen(){
         System.out.println("~~~~Välj en fighter~~~~");
