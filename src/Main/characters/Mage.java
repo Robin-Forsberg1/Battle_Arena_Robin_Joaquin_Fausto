@@ -19,7 +19,7 @@ public class Mage extends Fighter {
     @Override
     public String specialAbility(Fighter target) {
         int healed = heal(10);
-        return " läker med " + healed + " HP.";
+        return " läker med " + healed + " HP upp till " + getHp() + " HP";
     }
 
 }

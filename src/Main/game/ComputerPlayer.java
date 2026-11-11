@@ -2,7 +2,7 @@ package Main.game;
 import Main.characters.Fighter;
 import java.util.Random;
 
-public class ComputerPlayer extends Player implements Control {
+public class ComputerPlayer extends Player {
     private Random rand = new Random();
 
     public ComputerPlayer(String myName) {super(myName);}

@@ -17,31 +17,31 @@ class GameTest {
 
     //Using TDD
     @Test
-    void namePlayersGivesPlayerAName() {
-        game.namePlayers("Fausto");
+    void nameYourselfGivesPlayerAName() {
+        game.nameYourself("Fausto");
         assertEquals("Fausto", game.players.get(0).getMyName());
     }
 
 
     @Test
-    void namePlayersCanNotGivePlayerOnlySpace() {
+    void nameYourselfCanNotGivePlayerOnlySpace() {
         assertThrows(Error.class, () ->
                 assertTimeoutPreemptively(Duration.ofSeconds(1), () ->
-                        game.namePlayers(" ")));
+                        game.nameYourself(" ")));
     }
 
     @Test
-    void namePlayersCanNotGivePlayerEmptySpace(){
+    void nameYourselfCanNotGivePlayerEmptySpace(){
         assertThrows(Error.class, () ->
                 assertTimeoutPreemptively(Duration.ofSeconds(1), () ->
-                        game.namePlayers("\n")));
+                        game.nameYourself("\n")));
     }
 
 
     @Test
-    void namePlayersCanNotGivePlayerSameNameAsComputerPlayer() {
+    void nameYourselfCanNotGivePlayerSameNameAsComputerPlayer() {
         assertThrows(Error.class, () ->
                 assertTimeoutPreemptively(Duration.ofSeconds(1), () ->
-                        game.namePlayers("Datorn")));
+                        game.nameYourself("Datorn")));
     }
 }

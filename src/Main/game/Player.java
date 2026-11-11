@@ -1,7 +1,7 @@
 package Main.game;
 import Main.characters.*;
 
-public abstract class Player {
+public abstract class Player implements Control {
     private String myName;
     private Fighter myFighter;
 
@@ -26,8 +26,6 @@ public abstract class Player {
             case "2":
                 System.out.println(getMyName() + myFighter.specialAbility(target));
                 break;
-            case "3": break;
-            case "4": break;
             default: moveFound = false; break;
         } return moveFound;
     }
