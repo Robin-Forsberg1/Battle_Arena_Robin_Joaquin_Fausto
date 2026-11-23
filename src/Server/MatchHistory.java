@@ -9,7 +9,6 @@ import java.util.List;
 public class MatchHistory {
 
     private final Path historyFile = Path.of("matchHistory.txt");
-
     public synchronized void saveMatch(String result) throws IOException {
         Files.writeString(
                 historyFile,
