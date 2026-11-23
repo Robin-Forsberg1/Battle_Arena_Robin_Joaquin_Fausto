@@ -7,7 +7,7 @@ public enum TextList {
     FIGHT_STARTS("FIGHT BÖRJAS!"),
     PLAYERS_TURN(" börjar sin tur!"),
     WON(" vinner!"),
-    HUMAN_SELECT_MOVE("1: Attack | 2: SPLIT\nVälj nummer: "),
+    HUMAN_SELECT_MOVE("1: Attack | 2: PUT\nVälj nummer: "),
     UNKNOWN_MOVE("Okänd move...\n"),
     HUMAN_PICK_FIGHTER("1: Archer | 2: Mage | 3: Warrior\nVälj nummer: "),
     UNKNOWN_FIGHTER("Okänd fighter...\n");
@@ -17,5 +17,7 @@ public enum TextList {
 
     @Override
     public String toString() {return sweText;}
-    public String[] split() {return sweText.split("SPLIT");}
+
+    public String putInBetween(String text) {
+        return sweText.replaceAll("PUT", text);}
 }

@@ -10,9 +10,8 @@ public class HumanPlayer extends Player {
     @Override
     public void selectMove(Fighter target) {
         while (true) {
-            System.out.print(TextList.HUMAN_SELECT_MOVE.split()[0] +
-                    getFighter().getSpecialAction() +
-                    TextList.HUMAN_SELECT_MOVE.split()[1]);
+            System.out.print(TextList.HUMAN_SELECT_MOVE.putInBetween(
+                    getFighter().getSpecialAction().toString()));
             if(useMove(scan.nextLine(), target)) break;
             else System.out.println(TextList.UNKNOWN_MOVE);
         }
