@@ -9,7 +9,6 @@ class GameTest {
     Game game;
     HumanPlayer human;
 
-
     @BeforeEach
     void setUp() {
         game = new Game();
@@ -22,7 +21,7 @@ class GameTest {
         assertEquals("Fausto", game.players.get(0).getMyName());
     }
 
-
+    //Using TDD
     @Test
     void nameYourselfCanNotGivePlayerOnlySpace() {
         assertThrows(Error.class, () ->
@@ -30,6 +29,7 @@ class GameTest {
                         game.nameYourself(" ")));
     }
 
+    //Using TDD
     @Test
     void nameYourselfCanNotGivePlayerEmptySpace(){
         assertThrows(Error.class, () ->
@@ -37,7 +37,7 @@ class GameTest {
                         game.nameYourself("\n")));
     }
 
-
+    //Using TDD
     @Test
     void nameYourselfCanNotGivePlayerSameNameAsComputerPlayer() {
         assertThrows(Error.class, () ->
