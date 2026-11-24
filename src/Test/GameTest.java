@@ -21,7 +21,7 @@ class GameTest {
         assertEquals("Fausto", game.players.get(0).getMyName());
     }
 
-    //Using TDD
+    //Using TDD, with some help with AI
     @Test
     void nameYourselfCanNotGivePlayerOnlySpace() {
         assertThrows(Error.class, () ->
@@ -29,7 +29,7 @@ class GameTest {
                         game.nameYourself(" ")));
     }
 
-    //Using TDD
+    //Using TDD, with some help with AI
     @Test
     void nameYourselfCanNotGivePlayerEmptySpace(){
         assertThrows(Error.class, () ->
@@ -37,7 +37,7 @@ class GameTest {
                         game.nameYourself("\n")));
     }
 
-    //Using TDD
+    //Using TDD, with some help with AI
     @Test
     void nameYourselfCanNotGivePlayerSameNameAsComputerPlayer() {
         assertThrows(Error.class, () ->
