@@ -28,18 +28,25 @@ public class Game {
     public void battle() {
 
         System.out.println("FIGHT BÖRJAS!");
-        Boolean startText = true;
-        while(me.getFightersHP(startText) > 0 && it.getFightersHP(startText) > 0) {
+
+        while(me.getFightersHP() > 0 && it.getFightersHP() > 0) {
             System.out.println();
+
             me.selectMove(it.getFighter());
-            it.selectMove(me.getFighter());
+
+            if (it.getFightersHP() > 0) {
+                it.selectMove(me.getFighter());
+            }
+
             System.out.println();
-            me.getFightersHP(true);
-            it.getFightersHP(true);
-            startText = false;
+
+            me.printFightersHP();
+            it.printFightersHP();
         }
-        if(me.getFightersHP(false) < it.getFightersHP(false))
+        if(me.getFightersHP() == 0 ) {
             System.out.println(it.getMyName() + " vinner!");
-        else System.out.println(me.getMyName() + " vinner!");
+        } else {
+            System.out.println(me.getMyName() + " vinner!");
+        }
     }
 }

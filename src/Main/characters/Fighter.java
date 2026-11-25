@@ -29,10 +29,12 @@ public abstract class Fighter implements Moves {
         if (damage < 0) {
             throw new IllegalArgumentException("Skada kan inte vara negativ");
         }
+
         if (defending) {
             damage = (damage + 1) / 2;
             defending = false;
         }
+
         int oldHp = hp;
         hp = Math.max(0, hp -damage);
         return oldHp - hp;
@@ -52,7 +54,7 @@ public abstract class Fighter implements Moves {
         return hp;
     }
 
-    public int getHp(boolean withText) {
+   public int getHp(boolean withText) {
         if (withText) {
             System.out.println(getName() + "s HP: " + hp);
         }
