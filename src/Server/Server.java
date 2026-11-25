@@ -17,6 +17,7 @@ public class Server implements Runnable {
 
     @Override
     public void run() {
+        // Starts the server and handles incoming client connections
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
 
             System.out.println("Server started on port " + PORT);
@@ -34,7 +35,7 @@ public class Server implements Runnable {
             System.out.println("Server error: " + e.getMessage());
         }
     }
-
+    //Handles client requests to save match results or retrieve match history
     private void handleClient(Socket socket) {
         try (
                 Socket clientSocket = socket;
@@ -50,6 +51,7 @@ public class Server implements Runnable {
 
             String command = input.readLine();
 
+        //Saves a match result received from the client
             if ("SAVE".equals(command)) {
 
                 String result = input.readLine();
@@ -61,6 +63,7 @@ public class Server implements Runnable {
                     output.println("ERROR: Missing match result");
                 }
 
+                //sends the saved match history to the client
             } else if ("HISTORY".equals(command)) {
 
                 List<String> history = matchHistory.readHistory();
@@ -71,6 +74,7 @@ public class Server implements Runnable {
                     output.println(match);
                 }
 
+            //Responds to commands that the server does not recognize
             } else {
                 output.println("ERROR: Unknown command");
             }
