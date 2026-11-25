@@ -10,6 +10,7 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+// Tested And Functional
 public class Server implements Runnable {
 
     private static final int PORT = 5000;
@@ -47,9 +48,7 @@ public class Server implements Runnable {
                 );
                 PrintWriter output = new PrintWriter(
                         clientSocket.getOutputStream(),
-                        true))
-        
-        {
+                        true)) {
 
             String command = input.readLine();
 
@@ -83,3 +82,6 @@ public class Server implements Runnable {
         }
     }
 }
+
+
+
