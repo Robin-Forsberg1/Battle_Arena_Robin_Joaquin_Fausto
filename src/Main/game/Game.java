@@ -18,7 +18,7 @@ public class Game {
     }
 
     public void selectScreen(){
-        System.out.println("~~~~Välj en fighter~~~~");
+        System.out.println(TextList.CHOOSE_FIGHTER);
         for (Player player : players){player.pickFighter();}
         System.out.println();
     }
@@ -28,8 +28,8 @@ public class Game {
         Random random = new Random();
         if (random.nextBoolean()) {Collections.reverse(players);}
 
-        System.out.println("FIGHT BÖRJAS!");
-        System.out.println(players.get(0).getMyName() +" börjar sin tur!");
+        System.out.println(TextList.FIGHT_STARTS);
+        System.out.println(players.get(0).getMyName() +TextList.PLAYERS_TURN);
         while (true) {
             System.out.println();
             players.get(0).selectMove(players.get(1).getFighter());
@@ -39,7 +39,7 @@ public class Game {
 
         for (Player winner : players) {
             if (winner.getFightersHP(false) != 0) {
-                System.out.println(winner.getMyName() + " vinner!");
+                System.out.println(winner.getMyName() + TextList.WON);
             }
         }
     }
