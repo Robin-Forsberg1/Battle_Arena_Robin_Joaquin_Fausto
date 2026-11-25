@@ -24,8 +24,6 @@ public class Server implements Runnable {
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-
-                // Handle each connection in its own thread
                 Thread clientThread = new Thread(
                         () -> handleClient(clientSocket)
                 );
@@ -38,7 +36,6 @@ public class Server implements Runnable {
         }
     }
 
-    // Handles communication with an individual client
     private void handleClient(Socket socket) {
         try (
                 Socket clientSocket = socket;
@@ -50,9 +47,9 @@ public class Server implements Runnable {
                 );
                 PrintWriter output = new PrintWriter(
                         clientSocket.getOutputStream(),
-                        true
-                )
-        ) {
+                        true))
+        
+        {
 
             String command = input.readLine();
 
@@ -71,10 +68,8 @@ public class Server implements Runnable {
 
                 List<String> history = matchHistory.readHistory();
 
-                // First send the number of records
                 output.println(history.size());
 
-                // Then send each record
                 for (String match : history) {
                     output.println(match);
                 }
