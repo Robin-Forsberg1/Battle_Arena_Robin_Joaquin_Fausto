@@ -8,7 +8,8 @@ public abstract class Player implements Control {
     protected Player(String myName) {this.myName = myName;}
     protected int getFightersHP() {return myFighter.getHp();}
     protected void printFightersHP () {
-        System.out.println(getMyName() + "'s HP: " + myFighter.getHp());
+        System.out.println(getMyName() +"s " +
+                myFighter.getName()+ "'s HP: " + myFighter.getHp());
     }
 
     protected Fighter getFighter() {return myFighter;}
@@ -19,7 +20,8 @@ public abstract class Player implements Control {
         switch (choice){
             case "1":
                 int damage = myFighter.attack(target);
-                System.out.println(getMyName() + " gör " + damage + " skada");
+                System.out.println(getMyName() +"s " +myFighter.getName()+
+                        " gör " + damage + " skada på motståndarens "+ target.getName());
                 break;
             case "2":
                 System.out.println(getMyName() + myFighter.specialAbility(target));
