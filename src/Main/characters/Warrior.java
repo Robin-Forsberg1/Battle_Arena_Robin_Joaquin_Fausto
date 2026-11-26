@@ -19,7 +19,6 @@ public class Warrior extends Fighter {
     @Override
     public String specialAbility(Fighter target) {
         defend();
-
         return " försvarar sig själv och halverar nästa skada";
     }
 

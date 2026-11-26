@@ -6,13 +6,11 @@ public abstract class Fighter implements Moves {
     private final int maxHp,minDamage, maxDamage;
     private int hp;
     private boolean defending;
-
     private final Random random = new Random();
 
     public Fighter(int maxHp, int minDamage, int maxDamage) {
-        if (maxHp <= 0 || minDamage <= 0 || maxDamage < minDamage) {
+        if (maxHp <= 0 || minDamage <= 0 || maxDamage < minDamage)
             throw new IllegalArgumentException("Ogiltiga karaktärsvärden");
-        }
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.minDamage = minDamage;
@@ -26,10 +24,7 @@ public abstract class Fighter implements Moves {
     }
 
     public int takeDamage(int damage) {
-        if (damage < 0) {
-            throw new IllegalArgumentException("Skada kan inte vara negativ");
-        }
-
+        if (damage < 0) throw new IllegalArgumentException("Skada kan inte vara negativ");
         if (defending) {
             damage = (damage + 1) / 2;
             defending = false;
@@ -41,31 +36,16 @@ public abstract class Fighter implements Moves {
     }
 
     public int heal (int amount) {
-        if (amount < 0) {
-            throw new IllegalArgumentException("Läkningen kan inte vara negativ");
-        }
-
+        if (amount < 0) throw new IllegalArgumentException("Läkningen kan inte vara negativ");
         int oldHp = hp;
         hp = Math.min(maxHp, hp + amount);
         return hp - oldHp;
     }
 
-    public int getHp(){
-        return hp;
-    }
-
-    public void defend() {
-        defending = true;
-    }
-
-    public int getMaxHp() {
-        return maxHp;
-    }
-
-    public boolean isDefending() {
-        return defending;
-    }
-
+    public int getHp(){return hp;}
+    public void defend() {defending = true;}
+    public int getMaxHp() {return maxHp;}
+    public boolean isDefending() {return defending;}
     public abstract String getName();
 
     @Override

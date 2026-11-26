@@ -19,7 +19,6 @@ public class Archer extends Fighter {
     public String specialAbility(Fighter target) {
         int firstHit = attack(target);
         int secondHit = attack(target);
-
         return " attackerar två gånger och gör " + firstHit + " och " + secondHit + " skada";
     }
 }
