@@ -3,9 +3,7 @@ package Main.characters;
 public class Archer extends Fighter {
 
 
-    public Archer() {
-        super(90, 8, 18);
-    }
+    public Archer() {super(90, 8, 18);}
 
     @Override
     public String getName() {
