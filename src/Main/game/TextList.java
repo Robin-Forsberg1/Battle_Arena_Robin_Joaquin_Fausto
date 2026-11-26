@@ -9,7 +9,7 @@ public enum TextList {
     WON(" vinner!"),
     HUMAN_SELECT_MOVE("1: Attack | 2: PUT\nVälj nummer: "),
     UNKNOWN_MOVE("Okänd move...\n"),
-    HUMAN_PICK_FIGHTER("1: Archer | 2: Mage | 3: Warrior\nVälj nummer: "),
+    HUMAN_PICK_FIGHTER("1: Bågskytte | 2: Magiker | 3: Krigare\nVälj nummer: "),
     UNKNOWN_FIGHTER("Okänd fighter...\n");
 
     private final String sweText;

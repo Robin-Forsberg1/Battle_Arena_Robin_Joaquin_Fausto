@@ -2,26 +2,26 @@ package Main.characters;
 
 public class Archer extends Fighter {
 
-
     public Archer() {
-        super(100, 5, 15);
+        FighterStats archer = FighterStats.ARCHER;
+        super(archer.getHP(), archer.getMinDamage(), archer.getMaxDamage());
     }
 
     @Override
     public String getName() {
-        return "Archer";
+        return "Bågskytte";
     }
 
     @Override
-    public Actions getSpecialAction() {
-        return Actions.EXTRA_ATTACK;
+    public String getSpecialAction() {
+        return "Extra Attack";
     }
 
     @Override
     public String specialAbility(Fighter target) {
         int firstHit = attack(target);
         int secondHit = attack(target);
-
-        return " attackerar två gånger och gör " + firstHit + " och " + secondHit + " skada";
+        return "s "+ getName()+" attackerar två gånger och gör " + firstHit + " och " +
+                secondHit + " skada på motståndarens "+target.getName();
     }
 }
