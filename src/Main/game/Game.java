@@ -26,7 +26,7 @@ public class Game {
     public void battle() {
 
         Random random = new Random();
-        if (random.nextBoolean()) {Collections.reverse(players);}
+        if (random.nextBoolean()) Collections.reverse(players);
 
         System.out.println(TextList.FIGHT_STARTS);
         System.out.println(players.get(0).getMyName() +TextList.PLAYERS_TURN);
@@ -39,9 +39,8 @@ public class Game {
         }
 
         for (Player winner : players) {
-            if (winner.getFightersHP() != 0) {
+            if (winner.getFightersHP() != 0)
                 System.out.println(winner.getMyName() + TextList.WON);
-            }
         }
     }
 }
