@@ -21,29 +21,24 @@ class FighterTest {
     @Test
     void warriorAttacksArcher() {
         int damage = warrior.attack(archer);
-        System.out.println("Archers HP är nu: "+archer.getHp(true)+"\n");
         assertTrue(damage >=5 && damage <= 15);
     }
 
     @Test
     void archerLoseHPToZero() {
-        while (archer.getHp(true) > 1) {
-            warrior.attack(archer);
-            archer.getHp(true);
-            System.out.println();
-        }
-        assertTrue(archer.getHp(true) == 0);
+        archer.takeDamage(1000);
+        assertEquals(0, archer.getHp());
     }
 
     @Test
     void archerHealsThemselves() {
 
-        warrior.attack(archer);
-        int afterDamageHP = archer.getHp(true);
-        System.out.println();
-        int heal = archer.heal(5);
+       archer.takeDamage(20);
+       int afterDamageHP = archer.getHp();
 
-        assertTrue(archer.getHp(true) == afterDamageHP + heal);
+       int healedAmount = archer.heal(5);
+
+       assertEquals(afterDamageHP + healedAmount, archer.getHp());
 
     }
 

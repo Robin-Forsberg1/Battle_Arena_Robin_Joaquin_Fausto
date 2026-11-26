@@ -54,13 +54,6 @@ public abstract class Fighter implements Moves {
         return hp;
     }
 
-    public int getHp(boolean withText) {
-        if (withText) {
-            System.out.println(getName() + "s HP: " + hp);
-        }
-        return hp;
-    }
-
     public void defend() {
         defending = true;
     }
