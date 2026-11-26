@@ -3,24 +3,24 @@ package Main.characters;
 public class Warrior extends Fighter {
 
     public Warrior() {
-        super(110, 5, 15);
+        FighterStats warrior = FighterStats.WARRIOR;
+        super(warrior.getHP(), warrior.getMinDamage(), warrior.getMaxDamage());
     }
 
     @Override
     public String getName() {
-        return "Warrior";
+        return "Krigare";
     }
 
     @Override
-    public Actions getSpecialAction() {
-        return Actions.DEFEND;
+    public String getSpecialAction() {
+        return "Försvar";
     }
 
     @Override
     public String specialAbility(Fighter target) {
         defend();
-        return " försvarar sig själv och halverar nästa skada";
+        return "s "+ getName()+" försvarar sig själv och halverar " +
+                "nästa skada från motståndarens " + target.getName();
     }
-
-
 }

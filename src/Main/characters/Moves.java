@@ -1,6 +1,6 @@
 package Main.characters;
 
 public interface Moves {
-    Actions getSpecialAction();
+    String getSpecialAction();
     String specialAbility(Fighter target);
 }

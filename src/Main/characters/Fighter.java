@@ -10,7 +10,7 @@ public abstract class Fighter implements Moves {
 
     public Fighter(int maxHp, int minDamage, int maxDamage) {
         if (maxHp <= 0 || minDamage <= 0 || maxDamage < minDamage)
-            throw new IllegalArgumentException("Ogiltiga karaktärsvärden");
+            throw new IllegalArgumentException(TextList.INVALID_STATS.toString());
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.minDamage = minDamage;
@@ -24,7 +24,7 @@ public abstract class Fighter implements Moves {
     }
 
     public int takeDamage(int damage) {
-        if (damage < 0) throw new IllegalArgumentException("Skada kan inte vara negativ");
+        if (damage < 0) throw new IllegalArgumentException(TextList.NO_NEGATIVE_DAMAGE.toString());
         if (defending) {
             damage = (damage + 1) / 2;
             defending = false;
@@ -36,7 +36,7 @@ public abstract class Fighter implements Moves {
     }
 
     public int heal (int amount) {
-        if (amount < 0) throw new IllegalArgumentException("Läkningen kan inte vara negativ");
+        if (amount < 0) throw new IllegalArgumentException(TextList.NO_NEGATIVE_HEALS.toString());
         int oldHp = hp;
         hp = Math.min(maxHp, hp + amount);
         return hp - oldHp;
@@ -49,7 +49,7 @@ public abstract class Fighter implements Moves {
     public abstract String getName();
 
     @Override
-    public abstract Actions getSpecialAction();
+    public abstract String getSpecialAction();
 
     @Override
     public abstract String specialAbility(Fighter target);

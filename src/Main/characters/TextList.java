@@ -1,7 +1,9 @@
 package Main.characters;
 
 public enum TextList {
-    BLANC("blanc");
+    INVALID_STATS("Ogiltiga karaktärsvärden"),
+    NO_NEGATIVE_DAMAGE("Skada kan inte vara negativ"),
+    NO_NEGATIVE_HEALS("Läkningen kan inte vara negativ");
 
     private final String sweText;
     TextList(String sweText) {this.sweText = sweText;}
@@ -11,4 +13,5 @@ public enum TextList {
 
     public String putInBetween(String text) {
         return sweText.replaceAll("PUT", text);}
+
 }

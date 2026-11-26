@@ -3,23 +3,25 @@ package Main.characters;
 public class Mage extends Fighter {
 
     public Mage() {
-        super(100,5,15);
+        FighterStats mage = FighterStats.MAGE;
+        super(mage.getHP(), mage.getMinDamage(), mage.getMaxDamage());
     }
 
     @Override
     public String getName() {
-        return "Mage";
+        return "Magiker";
     }
 
     @Override
-    public Actions getSpecialAction() {
-        return Actions.HEAL;
+    public String getSpecialAction() {
+        return "Läka";
     }
 
     @Override
     public String specialAbility(Fighter target) {
         int healed = heal(10);
-        return " läkes sig sljälv från " + healed + " HP till " + getHp() + " HP";
+        return "s "+getName()+" läkes sig sljälv från " +
+                healed + " HP till " + getHp() + " HP";
     }
 
 }

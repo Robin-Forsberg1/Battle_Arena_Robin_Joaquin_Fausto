@@ -9,7 +9,7 @@ public abstract class Player implements Control {
     protected int getFightersHP() {return myFighter.getHp();}
     protected void printFightersHP () {
         System.out.println(getMyName() +"s " +
-                myFighter.getName()+ "'s HP: " + myFighter.getHp());
+                myFighter.getName()+ "ns HP: " + myFighter.getHp());
     }
 
     protected Fighter getFighter() {return myFighter;}
