@@ -4,7 +4,7 @@ public class Archer extends Fighter {
 
 
     public Archer() {
-        super(100, 5, 15);
+        super(90, 8, 18);
     }
 
     @Override

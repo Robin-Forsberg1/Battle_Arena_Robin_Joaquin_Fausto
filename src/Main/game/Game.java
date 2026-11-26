@@ -33,12 +33,13 @@ public class Game {
         while (true) {
             System.out.println();
             players.get(0).selectMove(players.get(1).getFighter());
-            if(players.get(1).getFightersHP(true) == 0) break;
+            players.get(1).printFightersHP();
+            if(players.get(1).getFightersHP() == 0) break;
             Collections.reverse(players);
         }
 
         for (Player winner : players) {
-            if (winner.getFightersHP(false) != 0) {
+            if (winner.getFightersHP() != 0) {
                 System.out.println(winner.getMyName() + TextList.WON);
             }
         }

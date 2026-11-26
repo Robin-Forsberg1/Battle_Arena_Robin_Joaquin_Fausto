@@ -7,12 +7,14 @@ public abstract class Player implements Control {
 
     protected Player(String myName) {this.myName = myName;}
 
-    protected int getFightersHP(boolean withText) {
-        if (withText) {
-            System.out.println(getMyName() + "'s HP: " + myFighter.getHp());
-        }
+    protected int getFightersHP() {
         return myFighter.getHp();
     }
+
+    protected void printFightersHP () {
+        System.out.println(getMyName() + "'s HP: " + myFighter.getHp());
+    }
+
     protected Fighter getFighter() {return myFighter;}
     public String getMyName() {return myName;}
 
@@ -24,8 +26,10 @@ public abstract class Player implements Control {
                 System.out.println(getMyName() + " gör " + damage + " skada");
                 break;
             case "2":
-                System.out.println(getMyName() + myFighter.specialAbility(target));
+                System.out.println(getMyName() +  myFighter.specialAbility(target));
                 break;
+            case "3": break;
+            case "4": break;
             default: moveFound = false; break;
         } return moveFound;
     }

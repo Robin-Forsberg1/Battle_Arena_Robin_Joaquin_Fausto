@@ -3,7 +3,7 @@ package Main.characters;
 public class Warrior extends Fighter {
 
     public Warrior() {
-        super(100, 5, 15);
+        super(110, 5, 15);
     }
 
     @Override
