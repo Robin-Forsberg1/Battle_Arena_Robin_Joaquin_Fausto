@@ -1,5 +1,7 @@
 package Main.characters;
 
+import org.w3c.dom.Text;
+
 import java.util.Random;
 
 public abstract class Fighter implements Moves {
@@ -26,8 +28,11 @@ public abstract class Fighter implements Moves {
     public int takeDamage(int damage) {
         if (damage < 0) throw new IllegalArgumentException(TextList.NO_NEGATIVE_DAMAGE.toString());
         if (defending) {
+            int originalDamage = damage;
             damage = (damage + 1) / 2;
             defending = false;
+
+            System.out.println(getName() + " " + TextList.DEFENSE_HALVES_DAMAGE.withDamage(originalDamage, damage));
         }
 
         int oldHp = hp;
