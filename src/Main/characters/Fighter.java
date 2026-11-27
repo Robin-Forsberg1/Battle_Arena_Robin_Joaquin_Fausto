@@ -1,13 +1,12 @@
 package Main.characters;
 
-import org.w3c.dom.Text;
 
 import java.util.Random;
 
 public abstract class Fighter implements Moves {
     protected final int maxHp,minDamage, maxDamage,specialPoints;
     protected int hp;
-    private boolean defending;
+    private boolean defending = false;
     private final Random random = new Random();
 
     public Fighter(int maxHp, int minDamage, int maxDamage, int specialPoints) {
@@ -21,6 +20,7 @@ public abstract class Fighter implements Moves {
     }
 
     public int attack(Fighter target) {
+        defending = false;
         int damage = random.nextInt(minDamage, maxDamage + 1);
         int actualDamage = target.takeDamage(damage);
         return actualDamage;
@@ -28,14 +28,7 @@ public abstract class Fighter implements Moves {
 
     public int takeDamage(int damage) {
         if (damage < 0) throw new IllegalArgumentException(TextList.NO_NEGATIVE_DAMAGE.toString());
-        if (defending) {
-            int originalDamage = damage;
-            damage = (damage + 1) / 2;
-            defending = false;
-
-            System.out.println(getName() + " " + TextList.DEFENSE_HALVES_DAMAGE.withDamage(originalDamage, damage));
-        }
-
+        if (defending) damage = Math.round((damage + 1) / specialPoints);
         int oldHp = hp;
         hp = Math.max(0, hp -damage);
         return oldHp - hp;
@@ -44,6 +37,5 @@ public abstract class Fighter implements Moves {
     public int getHp(){return hp;}
     public void defend() {defending = true;}
     public int getMaxHp() {return maxHp;}
-    public boolean isDefending() {return defending;}
     public abstract String getName();
 }
