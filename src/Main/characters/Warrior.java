@@ -8,14 +8,10 @@ public class Warrior extends Fighter {
     }
 
     @Override
-    public String getName() {
-        return "Krigare";
-    }
+    public String getName() {return "Krigare";}
 
     @Override
-    public String getSpecialAction() {
-        return "Försvar";
-    }
+    public String getSpecialAction() {return "Försvar";}
 
     @Override
     public String specialAbility(Fighter target) {
