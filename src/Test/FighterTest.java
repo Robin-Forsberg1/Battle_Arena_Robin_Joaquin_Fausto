@@ -54,7 +54,7 @@ class FighterTest {
 
     @Test
     void warriorDefendsAndReducesDamage() {
-        warrior.defend();
+        warrior.specialAbility(null);
 
         int damage = warrior.takeDamage(10);
 

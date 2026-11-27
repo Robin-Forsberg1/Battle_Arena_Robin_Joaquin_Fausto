@@ -35,7 +35,7 @@ public abstract class Fighter implements Moves {
     }
 
     public int getHp(){return hp;}
-    public void defend() {defending = true;}
+    protected void defend() {defending = true;}
     public int getMaxHp() {return maxHp;}
     public abstract String getName();
 }
