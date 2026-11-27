@@ -4,7 +4,7 @@ public class Archer extends Fighter {
 
     public Archer() {
         FighterStats archer = FighterStats.ARCHER;
-        super(archer.getHP(), archer.getMinDamage(), archer.getMaxDamage());
+        super(archer.getHP(), archer.getMinDamage(), archer.getMaxDamage(), archer.getSpecialPoints());
     }
 
     @Override
@@ -19,9 +19,10 @@ public class Archer extends Fighter {
 
     @Override
     public String specialAbility(Fighter target) {
-        int firstHit = attack(target);
-        int secondHit = attack(target);
-        return "s "+ getName()+" attackerar två gånger och gör " + firstHit + " och " +
-                secondHit + " skada på motståndarens "+target.getName();
+        int totalDamage = 0;
+        for (int i = 0; i < specialPoints; i++) {
+            totalDamage += attack(target);}
+        return "s "+ getName()+" attackerar "+ specialPoints +" gånger och gör totalt " +
+                totalDamage + " skada på motståndarens "+target.getName();
     }
 }

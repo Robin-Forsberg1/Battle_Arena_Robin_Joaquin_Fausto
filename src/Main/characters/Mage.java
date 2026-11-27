@@ -4,7 +4,7 @@ public class Mage extends Fighter {
 
     public Mage() {
         FighterStats mage = FighterStats.MAGE;
-        super(mage.getHP(), mage.getMinDamage(), mage.getMaxDamage());
+        super(mage.getHP(), mage.getMinDamage(), mage.getMaxDamage(), mage.getSpecialPoints());
     }
 
     @Override
@@ -19,9 +19,11 @@ public class Mage extends Fighter {
 
     @Override
     public String specialAbility(Fighter target) {
-        int healed = heal(10);
+        if (specialPoints < 0) throw new IllegalArgumentException(TextList.NO_NEGATIVE_HEALS.toString());
+        int oldHp = hp;
+        hp = Math.min(maxHp, hp + specialPoints);
         return "s "+getName()+" läkes sig sljälv från " +
-                healed + " HP till " + getHp() + " HP";
+                oldHp + " HP till " + getHp() + " HP";
     }
 
 }

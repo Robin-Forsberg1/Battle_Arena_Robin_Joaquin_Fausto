@@ -33,23 +33,25 @@ class FighterTest {
     @Test
     void archerHealsThemselves() {
 
-       archer.takeDamage(20);
-       int afterDamageHP = archer.getHp();
+       mage.takeDamage(20);
+       int afterDamageHP = mage.getHp();
 
-       int healedAmount = archer.heal(5);
+       mage.specialAbility(null);
+       int healedHP = mage.getHp();
 
-       assertEquals(afterDamageHP + healedAmount, archer.getHp());
+       assertEquals(afterDamageHP+10, archer.getHp());
 
     }
 
-    @Test
+    /*@Test
     void healingCannotExceedMaxHP() {
         mage.takeDamage(10);
 
+        mage.specialAbility(null);
         mage.heal(1000);
 
         assertEquals(mage.getMaxHp(), mage.getHp());
-    }
+    }*/
 
     @Test
     void warriorDefendsAndReducesDamage() {

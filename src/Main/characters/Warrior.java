@@ -4,7 +4,7 @@ public class Warrior extends Fighter {
 
     public Warrior() {
         FighterStats warrior = FighterStats.WARRIOR;
-        super(warrior.getHP(), warrior.getMinDamage(), warrior.getMaxDamage());
+        super(warrior.getHP(), warrior.getMinDamage(), warrior.getMaxDamage(), warrior.getSpecialPoints());
     }
 
     @Override

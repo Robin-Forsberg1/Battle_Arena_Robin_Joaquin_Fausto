@@ -5,18 +5,19 @@ import org.w3c.dom.Text;
 import java.util.Random;
 
 public abstract class Fighter implements Moves {
-    private final int maxHp,minDamage, maxDamage;
-    private int hp;
+    protected final int maxHp,minDamage, maxDamage,specialPoints;
+    protected int hp;
     private boolean defending;
     private final Random random = new Random();
 
-    public Fighter(int maxHp, int minDamage, int maxDamage) {
+    public Fighter(int maxHp, int minDamage, int maxDamage, int specialPoints) {
         if (maxHp <= 0 || minDamage <= 0 || maxDamage < minDamage)
             throw new IllegalArgumentException(TextList.INVALID_STATS.toString());
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.minDamage = minDamage;
         this.maxDamage = maxDamage;
+        this.specialPoints = specialPoints;
     }
 
     public int attack(Fighter target) {
@@ -40,22 +41,9 @@ public abstract class Fighter implements Moves {
         return oldHp - hp;
     }
 
-    public int heal (int amount) {
-        if (amount < 0) throw new IllegalArgumentException(TextList.NO_NEGATIVE_HEALS.toString());
-        int oldHp = hp;
-        hp = Math.min(maxHp, hp + amount);
-        return hp - oldHp;
-    }
-
     public int getHp(){return hp;}
     public void defend() {defending = true;}
     public int getMaxHp() {return maxHp;}
     public boolean isDefending() {return defending;}
     public abstract String getName();
-
-    @Override
-    public abstract String getSpecialAction();
-
-    @Override
-    public abstract String specialAbility(Fighter target);
 }
