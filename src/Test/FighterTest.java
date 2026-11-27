@@ -43,15 +43,14 @@ class FighterTest {
 
     }
 
-    /*@Test
+    @Test
     void healingCannotExceedMaxHP() {
-        mage.takeDamage(10);
+        mage.takeDamage(1);
 
-        mage.specialAbility(null);
-        mage.heal(1000);
+        mage.specialAbility(mage);
 
         assertEquals(mage.getMaxHp(), mage.getHp());
-    }*/
+    }
 
     @Test
     void warriorDefendsAndReducesDamage() {
