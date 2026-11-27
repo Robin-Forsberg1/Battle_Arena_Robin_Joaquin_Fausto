@@ -3,8 +3,9 @@ package Main.characters;
 public class Archer extends Fighter {
 
     public Archer() {
-        FighterStats archer = FighterStats.ARCHER;
-        super(archer.getHP(), archer.getMinDamage(), archer.getMaxDamage(), archer.getSpecialPoints());
+        FighterStats stats = FighterStats.ARCHER;
+        super(stats.getHP(), stats.getMinDamage(),
+                stats.getMaxDamage(), stats.getSpecialPoints());
     }
 
     @Override

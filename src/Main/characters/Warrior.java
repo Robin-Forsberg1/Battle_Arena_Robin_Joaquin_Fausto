@@ -3,8 +3,9 @@ package Main.characters;
 public class Warrior extends Fighter {
 
     public Warrior() {
-        FighterStats warrior = FighterStats.WARRIOR;
-        super(warrior.getHP(), warrior.getMinDamage(), warrior.getMaxDamage(), warrior.getSpecialPoints());
+        FighterStats stats = FighterStats.WARRIOR;
+        super(stats.getHP(), stats.getMinDamage(),
+                stats.getMaxDamage(), stats.getSpecialPoints());
     }
 
     @Override

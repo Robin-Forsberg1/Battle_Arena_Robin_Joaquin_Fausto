@@ -3,8 +3,9 @@ package Main.characters;
 public class Mage extends Fighter {
 
     public Mage() {
-        FighterStats mage = FighterStats.MAGE;
-        super(mage.getHP(), mage.getMinDamage(), mage.getMaxDamage(), mage.getSpecialPoints());
+        FighterStats stats = FighterStats.MAGE;
+        super(stats.getHP(), stats.getMinDamage(),
+                stats.getMaxDamage(), stats.getSpecialPoints());
     }
 
     @Override
